@@ -11,9 +11,8 @@
 {% if view == "masonry" %}<div class="o-rustygrid__item js-loop__item">{% endif %}
 	<article class='o-box -viewCard o-center{% if view != "masonry" %} js-loop__item{% endif %}'>
 		<hgroup class=c-header>
-			<h6 class="o-box__meta{% if post.data.topics != nil %} -alignStart{% endif -%}
-				{% comment %} {%- if postHasImage == true %} u-txtOnImg{% endif -%} {% endcomment %}
-				"><relative-time
+			{% comment %} <h6 class="o-box__meta{% if post.data.topics != nil %} -alignStart{% endif -%} {% endcomment %}
+			<h6 class="o-box__meta"><relative-time
 					class=published
 					itemprop=datePublished
 					prefix=""
@@ -39,14 +38,13 @@
 			</h6>
 			{%- comment -%} If the post doesn't have "foto" tag, output rest of the meta markup. {%- endcomment -%}
 			{%- unless post.data.tags contains "foto" -%}
-				{%- if post.data.topics != nil -%}
-					<h6 class="o-box__meta -alignEnd">
-						{% comment %} {%- if postHasImage == true %} u-txtOnImg{% endif -%}"> {% endcomment %}
-						{%- for topic in post.data.topics limit:3 -%}
-							{{- topic }}{% unless forloop.last %}, {% endunless -%}
-						{%- endfor -%}
-					</h6>
-				{%- endif -%}
+				{% comment %} {%- if post.data.topics != nil -%} {% endcomment %}
+				{% comment %} 	<h6 class="o-box__meta -alignEnd"> {% endcomment %}
+				{% comment %} 		{%- for topic in post.data.topics limit:3 -%} {% endcomment %}
+				{% comment %} 			{{- topic }}{% unless forloop.last %}, {% endunless -%} {% endcomment %}
+				{% comment %} 		{%- endfor -%} {% endcomment %}
+				{% comment %} 	</h6> {% endcomment %}
+				{% comment %} {%- endif -%} {% endcomment %}
 				{%- if post.data.title != nil -%}
 					<h2 class="o-box__title">
 						{% comment %} {%- if postHasImage == true %} u-txtOnImg{% endif -%}"> {% endcomment %}
@@ -65,4 +63,4 @@
 		{%- endif -%}
 		<a href='{{ post.url }}' title='Read more…'>⇢</a>
 	</article>
-{% if view == "masonry" %}</div>{% endif %}
+{%- if view == "masonry" %}</div>{% endif %}

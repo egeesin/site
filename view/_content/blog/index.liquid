@@ -3,15 +3,15 @@ layout: default
 title: Blog
 customHeaderTitle: Blog
 options:
-   showTitleInNav: false
-   forceDarkHeader: true
+  showTitleInNav: false
+changefreq: monthly
 priority: 1
 pagination:
-  data: collections.homepage
+  data: collections.blog
   size: 9
 permalink: "blog/{% if pagination.pageNumber > 0 %}p/{{ pagination.pageNumber | plus:1 }}{% else %}index{% endif %}.html"
 ---
-{%- assign post_count = collections.homepage | default: pagination.items -%}
+{%- assign post_count = collections.blog | default: pagination.items -%}
 {%- include 'loop/container'
 	view: "masonry"
 	load_more_button: true

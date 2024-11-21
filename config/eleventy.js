@@ -216,14 +216,23 @@ export default (cfg) => {
 	});
 
 // 🗃️ Collections
-	cfg.addCollection('homepage', collection => {
-		return collection.getFilteredByGlob(['**/blog/+(article|link|note)/**/*.md', '**/photo/**/*.md']).reverse();
+	cfg.addCollection('blog', collection => {
+		return collection.getFilteredByGlob(['**/blog/+(post|article|link|note)/**/*.md', '**/photo/**/*.md']).reverse();
 	});
-	cfg.addCollection('article', collection => {
-		return collection.getFilteredByGlob("**/blog/article/**/*.md").reverse();
+	cfg.addCollection('post', collection => {
+		return collection.getFilteredByGlob("**/blog/post/**/*.md").reverse();
+	});
+	cfg.addCollection('fftr', collection => {
+		return collection.getFilteredByGlob("**/blog/fftr/post/**/*.md").reverse();
+	});
+	cfg.addCollection('childhood', collection => {
+		return collection.getFilteredByGlob("**/blog/childhood/**/*.md").reverse();
 	});
 	cfg.addCollection('photo', collection => {
 		return collection.getFilteredByGlob("**/photo/**/*.md").reverse();
+	});
+	cfg.addCollection('work', collection => {
+		return collection.getFilteredByGlob("**/work/**/*.md").reverse();
 	});
 	cfg.addCollection('sitemap', collection => {
 		return collection.getFilteredByGlob('**/*.md');
@@ -289,6 +298,7 @@ export default (cfg) => {
 	// cfg.addPassthroughCopy("./img");
 	// cfg.addPassthroughCopy("./asset");
 	cfg.addPassthroughCopy("view/media/**/*.{mp3,mp4,m4a,wav,flac,ogg,apng,webm}");
+	cfg.addPassthroughCopy("view/media/passthrough");
 	// cfg.addPassthroughCopy("view/media/**/*.!{jpg,jpeg,png,gif,tif,svg,webp,avif,jxl}");
 	// cfg.addPassthroughCopy("view/media");
 	return {

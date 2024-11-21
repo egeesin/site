@@ -1,0 +1,19 @@
+---
+layout: default
+options:
+	appendRootClass: "-stylesetAcetate -borderValNone"
+---
+<main id=content class=s-cmsContent aria-label=Content itemprop=mainContentOfPage>
+	{%- comment %}This markup supports HAtom schema: https://microformats.org/wiki/hatom#Schema{% endcomment -%}
+	<article class="o-box -viewCard o-center hentry" itemscope itemtype="https://schema.org/BlogPosting">
+		<hgroup class=c-header>
+			{%- if title != nil -%}
+				<h1 class="o-box__title entry-title">{{ title | escape }}</h1>
+			{%- endif -%}
+		</hgroup>
+		<section class="entry-content" itemprop=articleBody>
+		{{ content }}
+		</section>
+		<a class=url itemprop=url href="{{ page.url | prepend: site.baseurl }}" hidden></a>
+	</section>
+</main>

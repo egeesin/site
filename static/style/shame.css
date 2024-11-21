@@ -130,7 +130,8 @@ body._stickyFooter{
 	margin-block: calc((var(--lineHeight) - var(--imgSize))/2);
 
 	/* border-radius: var(--radiusInnerDefault); */
-	border-radius: var(--radiusS);
+	/* border-radius: var(--radiusS); */
+	border-radius: var(--radiusM);
 	/* -opinionated */
 	position: relative;
 	overflow: hidden;

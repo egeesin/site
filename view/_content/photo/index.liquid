@@ -1,10 +1,9 @@
 ---
 layout: default
-title: Photo
+title: Photos
 customHeaderTitle: Photo
 options:
-  appendRootClass: "-forceDark"
-  forceDarkHeader: true
+  showTitleInNav: true
 priority: 1
 pagination:
   data: collections.photo
@@ -17,4 +16,3 @@ permalink: "photo/{% if pagination.pageNumber > 0 %}p/{{ pagination.pageNumber |
 	load_more_button: true
 	items: post_count
 %}
-

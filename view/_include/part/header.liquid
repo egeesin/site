@@ -5,32 +5,41 @@
 	t-modRoot -cornerInherit -borderValNone -stylesetAcetate
 	{% if options.forceDarkHeader == true %}t-color -forceDark -schemeInherit{% endif %}
 	"
-	style="background-color: var(--colorBack);"
+	{% comment %} style="background-color: var(--colorBack);" {% endcomment %}
 	>
 	<div class=o-rustygrid>
 		{%- if options.showTitleInNav == false -%}
-			<div class="o-rustygrid__item -col1 -col5-12@palm -push1-12@palm" style="user-select:none">
-				<h1 class="u-txtOnImg">
-					<a href="/"
-						{%- if site.favicon.webp192 -%}
-							><img eleventy:ignore style="margin-inline-start:.5ch" src="{{ site.favicon.webp192 }}" width=48px alt="" 
-						{%- else -%}
-							><svg class="pi -size2x" style="--iconWeight: 2px" viewBox='0 0 18 18' width="2rem"><use href='/pi.svg#house'></use></svg
-						{%- endif -%}
-						><span style="margin-inline-start:.5ch;vertical-align:middle">{{ site.title }}</span></a
-					{%- comment -%} TODO: Add custom header title link to where it's been invoked from.{%- endcomment -%}
-					{%- if title -%}
-						><span style="vertical-align:middle;">{{- options.titleSeparator | default: site.options.titleSeparator
-						-}}<a href="{{ page.url }}">{{- title -}}</a></span>
-						{%- comment -%} {% if site.title %}<h1 style="text-align:center"><a href="{{ "/" | url }}">{{ site.title | escape }}</a></h1>{% endif %} {%- endcomment -%}
-						{%- comment -%} {% if site.description %}<h4 style="text-align:center">{{ site.description }}</h4>{% endif %} {%- endcomment -%}
-					{%- else -%}>
+		<div class="-col1 {% if site.description != empty %}-col5-12@palm{% else %}-col5-6{% endif %} -push1-12@palm o-rustygrid__item" style="user-select:none">
+				<h1 style="font-family:'Iosevka Aegean',var(--fontHeading, sans-serif);--letterSpacing:-.0625em">
+					<a href="/" title="Direct link to homepage">
+						{%- comment %} {%- if site.favicon.webp192 -%} {% endcomment -%}
+						{%- comment %} 	><img eleventy:ignore style="margin-inline-start:.5ch" src="{{ site.favicon.webp192 }}" width=48px alt=""  {% endcomment -%}
+						{%- comment %} {%- else -%} {% endcomment -%}
+						{%- comment %} 	><svg class="pi -size2x" style="--iconWeight: 2px" viewBox='0 0 18 18' width="2rem"><use href='/pi.svg#house'></use></svg {% endcomment -%}
+						{%- comment %} {%- endif -%} {% endcomment -%}
+						<div class=_faviconAnimated
+							style="--faviconAnimated: url(/media/passthrough/pxltd-tlkng-ege-2021-09-12.gif);">
+							<img eleventy:ignore
+								style="image-rendering:pixelated;"
+								src='https://secure.gravatar.com/avatar/ef0719f8f457970b87647ffb9a887e23?s=96'
+								alt=""
+								width=48px>
+						</div>
+					{%- if title == nil -%}
+						<span style="margin-inline-start:.5ch;vertical-align:middle">{{ site.title }}</span></a>
+					{%- else -%}
+						<svg class="pi -size2x" width=2rem style="margin-inline-start:.25rem;margin-inline-end:0;--fontCapitalHeight:.4;" viewBox="0 0 18 18">
+							<use href="/pi.svg#site-ege"/>
+						</svg></a
+						><span style="vertical-align:middle;font-weight:100;--fontWeight:100">/{%- comment -%}{{- options.titleSeparator | default: site.options.titleSeparator
+						-}}{%- endcomment -%}</span><a href="{{ page.url }}">{% if customHeaderTitle or page.customHeaderTitle %}{{ customHeaderTitle | default: page.customHeaderTitle }}{% else %}{{- title -}}{% endif %}</a>
 					{%- endif -%}
 				</h1>
 			</div>
 			{%- if site.description != empty -%}
 				<div class="o-rustygrid__item -col1 -col1-2@palm" style="user-select:none">
-					<h4 id="js-randomDesc" class="u-txtOnImg" style=text-align:end>{{ site.description }}</h4>
+					<h4 id="js-randomDesc" style=text-align:end>{{ site.description }}</h4>
+					{% comment %} <h4 id="js-randomDesc" class="u-txtOnImg" style=text-align:end>{{ site.description }}</h4> {% endcomment %}
 				</div>
 			{%- endif -%}
 		{%- endif -%}

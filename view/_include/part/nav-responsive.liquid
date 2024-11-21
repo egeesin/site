@@ -14,7 +14,8 @@
 						<svg class="pi" viewBox='0 0 18 18' width="2rem">
 							<use href='/pi.svg#house'></use>
 						</svg
-					{%- endif -%}><b>{{ site.title }}</b>
+					{% comment %} {%- endif -%}><b>{{ site.title }}</b> {% endcomment %}
+			{%- endif -%}><span style='font:normal 700 1.1em Iosevka Aegean;letter-spacing:-1.25px;'>{{ site.pwa.titleShort }}</span>
 				</a>
 			</li>
 		{%- endif -%}

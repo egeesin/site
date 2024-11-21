@@ -11,7 +11,7 @@ eleventyExcludeFromCollections: true
 		<atom:link href="{{ permalink | prepend: site.baseurl }}" rel="self" type="application/rss+xml" />
 		<description>{{ site.description }}</description>
 		<language>{{ site.lang }}</language>
-		{% for item in collections.homepage limit: 25 %}
+		{% for item in collections.blog limit: 25 %}
 		<item>
 			<title>{{ item.data.title }}</title>
 			<link>{{ item.url | prepend: site.baseurl | clearIndex }}"</link>

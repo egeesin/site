@@ -1,9 +1,9 @@
 {
 	"lang": "en",
-	"title": "Site Title",
-	"description": "Description of this site",
-	"repository": "github_name/repo_name",
-	"baseurl": "https://example.com",
+	"title": "Ege Esin",
+	"description": "",
+	"repository": "egeesin/site",
+	"baseurl": "https://egeesin.com",
 	"favicon": {
 		"ico32": "/favicon.ico",
 		"webp180": "/apple-touch-icon.webp",
@@ -11,19 +11,19 @@
 		"webp512": "/icon-512.webp"
 	},
 	"options": {
-		"titleSeparator": "・",
-		"rootClasses": "t-color t-modRoot -borderColorBack -borderValNormal -borderStyleOutset -embossSmooth -cornerRoundedMax -shadowTypeSmooth",
+		"titleSeparator": " • ",
+		"rootClasses": "t-color t-modRoot -cornerRoundedMax -borderStyleOutset -outlineColorBg -schemeLightFlexoki -outlineValHairline",
 		"bodyClasses": "t-modBody",
-		"appendRootClass": "",
+		"appendRootClass": "-borderValRhythm",
 		"appendBodyClass": "",
 		"showTitleInNav": false,
 		"forceDarkHeader": true,
-		"discourageSearchEngine": true,
+		"discourageSearchEngine": false,
 		"noPinterest": true,
 		"showThemeSwitcher": true
 	},
 	"pwa": {
-		"titleShort": "Site",
+		"titleShort": "Ege_E",
 		"colorTheme": "#1998ee",
 		"colorBg": "#000",
 		"colorBgDark": "#000",
@@ -31,23 +31,23 @@
 		"display": "minimal-ui"
 	},
 	"author": {
-		"name": "Name Surname",
-		"url": "https://example.com/about",
-		"email": "info@example.com",
-		"avatar": "static/asset/filler/avatar.png",
-		"behance": "behance_name",
-		"discord": "000000000000000000",
-		"github": "github_name",
-		"itchio": "username",
-		"instagram": "instagram_name",
-		"mastodon": "@handle@mastodon.social",
-		"youtube": "@handle",
-		"twitterx": "@socialtwitter"
+		"name": "Ege Esin",
+		"url": "https://egeesin.com/about",
+		"email": "aegean@duck.com",
+		"avatar": "/icon-512.webp",
+		"behance": "ege_e",
+		"discord": "209017622682009600",
+		"github": "egeesin",
+		"itchio": "egeesin",
+		"instagram": "ege_esin",
+		"mastodon": "@egeesin@mastodon.social",
+		"youtube": "@ege_e",
+		"twitterx": "@egeesin"
 	},
 	"indieweb": {
-		"webmention": "https://webmention.io/example.com/webmention",
-		"pingback": "https://webmention.io/example.com/xmlrpc",
-		"me": "https://mastodon.social/@username",
+		"webmention": "https://webmention.io/egeesin.com/webmention",
+		"pingback": "https://webmention.io/egeesin.com/xmlrpc",
+		"me": "https://mastodon.social/@egeesin",
 		"tokenEndpoint": "https://tokens.indieauth.com/token",
 		"authEndpoint": "https://indieauth.com/auth"
 	}

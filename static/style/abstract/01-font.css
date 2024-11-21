@@ -52,7 +52,8 @@
 	/* --fontMain: var(--fontStackSansPixelated), color-emoji; */
 	/* --fontMain: var(--fontStackSystemUI), color-emoji; */
 	--fontMono: "Iosevka Aegean", var(--fontStackMono);
-	--fontHeading: var(--fontMain);
+	/* --fontHeading: var(--fontMain); */
+	/* --fontParagraph: var(--fontStackTransitional); */
 	/* --fontParagraph: var(--fontMain); */
 
 	/* Use default system font stack in smartwatches */

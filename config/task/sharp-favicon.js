@@ -9,7 +9,7 @@ import getGravatar from 'get-gravatar';
 	//
 // Order of input favicon files to check inside inputDir 
 const inputDir = 'static/';
-// const gravatarEmail = 'info@example.com';
+const gravatarEmail = 'ege_e@icloud.com';
 const favIn = [
 		'favicon.svg',
 		'favicon.jxl',

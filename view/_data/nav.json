@@ -1,34 +1,59 @@
 {
 	"primary": [
 		{
+			"label": "Now",
+			"url": "/now/",
+			"icon": "general-teacup-turkish"
+		},
+		{
+			"label": "About",
+			"url": "/about/",
+			"icon": "general-person"
+		},
+		{
 			"label": "Blog",
 			"url": "/blog/",
 			"icon": "paper-multiple-masonry"
 		},
 		{
-			"label": "Nav Example",
+			"label": "Work",
+			"url": "/work/",
+			"icon": "tool-paper-pencil",
+			"separator": "<li class='c-nav__separator'></li>"
+		},
+		{
+			"label": "Other…",
 			"url": "#!",
-			"icon": "general-drawer",
 			"separator": "<li class='c-nav__separator -leanEnd'></li>",
 			"submenu": [
 				{
-					"label": "Old Stuff",
-					"url": "#!"
+					"label": "Photos",
+					"url": "/photo/",
+					"icon": "file-img-landscape"
 				},
 				{
-					"label": "Rocket",
-					"url": "#!",
+					"label": "FusionTürk",
+					"url": "/blog/fftr/",
 					"icon": "fun-rocket"
+				},
+				{
+					"label": "From Childhood",
+					"url": "/blog/childhood/",
+					"icon": "trash-bin"
+				},
+				{
+					"label": "Archive",
+					"url": "/archive/",
+					"icon": "general-drawer"
 				}
 			]
-		},
+		},	
 		{
-			"icon": "the-logo",
-			"view": "IconOnly",
-			"label": "Plain Version",
-			"url": "/plain/",
-			"align": "right"
-		},
+			"label": "Esintype",
+			"url": "https://esintype.com",
+			"align": "right",
+			"alt": "We create fonts, focusing on contributing to the cultural diversity of the Latin type and its ancient roots in Anatolia"
+		},	
 		{
 			"label": "Contact",
 			"url": "#!",
@@ -39,29 +64,76 @@
 				{
 					"label": "Discord",
 					"view": "IconOnly",
-					"url": "//discord.com/users/000000000000000000",
+					"url": "//discord.com/users/209017622682009600",
 					"icon": "site-discord",
-					"alt": "Direct link to my Discord profile. DMs are currently open. Please don't send friend request unless you need to make Group DM. Thanks."
+					"alt": "Direct link to my Discord profile. DMs are open so please refrain from sending friend request unless you let me know that you're going to make Group DM. Thank you."
 				},
 				{
 					"label": "Mastodon",
 					"view": "IconOnly",
-					"url": "//mastodon.social/@username",
+					"url": "//mastodon.social/@egeesin",
 					"icon": "site-mastodon",
 					"alt": "Direct link to my Mastodon profile on mastodon.social instance."
 				},
 				{
 					"label": "GitHub",
 					"view": "IconOnly",
-					"url": "//github.com/username",
+					"url": "//github.com/egeesin",
 					"icon": "site-github",
 					"alt": "Direct link to my Mastodon profile on mastodon.social instance."
 				},
 				{
-					"label": "E-Mail",
-					"url": "mailto:info@example.com",
+					"label": "itch.io",
+					"view": "IconOnly",
+					"url": "//egeesin.itch.io",
+					"icon": "gamestore-itch",
+					"alt": "Direct link to my itch.io portfolio homepage"
+				},
+				{
+					"label": "Email",
+					"url": "javascript:location='mailto:&#97;&#101;&#103;&#101;&#97;&#110;&commat;&#100;&#117;&#99;&#107;&period;&#99;&#111;&#109;';void 0",
 					"icon": "general-letterbox",
 					"alt": "Direct link to compose new message to my address via default e-mail client"
+				},
+				{
+					"label": "YouTube",
+					"view": "IconOnly",
+					"url": "//youtube.com/@Ege_E",
+					"icon": "site-youtube",
+					"alt": "Direct link to my YouTube channel"
+				},
+				{
+					"label": "LinkedIn",
+					"view": "IconOnly",
+					"url": "//linkedin.com/in/ege-e",
+					"icon": "site-linkedin",
+					"alt": "Direct link to my LinkedIn portfolio"
+				},
+				{
+					"label": "Instagram",
+					"view": "IconOnly",
+					"url": "//instagram.com/ege_esin",
+					"icon": "site-instagram",
+					"alt": "Direct link to my Instagram profile"
+				},
+				{
+					"label": "Twitter (X)",
+					"view": "IconOnly",
+					"url": "//x.com/egeesin",
+					"icon": "site-twitterx",
+					"alt": "Direct link to my Twitter (X) profile"
+				},
+				{
+					"label": "Behance",
+					"view": "IconOnly",
+					"url": "//behance.net/egeesin",
+					"icon": "site-behance",
+					"alt": "Direct link to my Behance portfolio"
+				},
+				{
+					"label": "More…",
+					"url": "/contact",
+					"icon": "general-rss"
 				}
 			]
 		}

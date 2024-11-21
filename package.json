@@ -1,21 +1,20 @@
 {
-  "name": "@egeesin/pxl",
+  "name": "@egeesin/site",
   "version": "0.6.0",
-  "description": "An adjustable framework-ish static site theme with sensible defaults and nice looks.",
+  "description": "🌍 Source code of my personal website",
   "type": "module",
   "engines": {
     "node": ">=18"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egeesin/pxl.git"
+    "url": "git+https://github.com/egeesin/site.git"
   },
   "author": {
     "name": "Ege Esin",
     "email": "aegean@duck.com",
     "url": "https://egeesin.com/"
   },
-  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/egeesin/pxl/issues"
   },
@@ -29,38 +28,22 @@
       "url": "https://patreon.com/egeesin"
     }
   ],
-  "homepage": "https://github.com/egeesin/pxl#readme",
-  "keywords": [
-    "css",
-    "html",
-    "theme",
-    "css-framework",
-    "customizable",
-    "11ty",
-    "SSG"
-  ],
+  "homepage": "https://egeesin.com/",
   "browserslist": [
     ">= .5% and not dead and not op_mini all"
   ],
-  "packageManager": "pnpm@9.0.5",
-  "outputDirectory": "dist",
-  "devCommand": "pnpm build",
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm i",
-  "framework": "eleventy",
   "scripts": {
     "start": "pnpm build && pnpm watch",
     "clean": "pnpm exec rimraf {tmp,dist}/",
-    "mkdest": "mkdir -p {tmp,dist}/{static,plain} tmp/view dist/static/asset/font",
+    "mkdest": "mkdir -p {tmp,dist}/static tmp/view dist/static/asset/font",
     "build": "pnpm clean && pnpm mkdest && pnpm process && pnpm lint && pnpm optimize",
     "process": "pnpm \"/^(copy|process|compress):.*/\"",
     "copy:font": "pnpm exec cpy \"static/asset/font/**/*.woff2\" dist/static/asset/font/",
     "copy:gif": "pnpm exec cpy \"static/asset/**/*.gif\" dist/static/asset/",
-    "copy:ss": "pnpm exec cpy \"static/screenshot.webp\" dist/",
+    "copy:ss": "pnpm exec cpy \"static/screenshot.webp\" dist/ || true",
     "copy:json": "pnpm exec cpy \"static/script/**/*.json\" dist/static/script/",
     "copy:faviconsvg": "pnpm exec cpy \"static/favicon.svg\" dist/ || true",
-    "process:page:view": "pnpm exec eleventy --config=config/eleventy.js",
-    "process:page:plain": "pnpm exec posthtml \"plain/**/*.html\" \"!plain/_include/**/*.html\" -o tmp/ -a -c config/posthtml.json",
+    "process:page:view": "pnpm exec eleventy --incremental --config=config/eleventy.js",
     "process:style": "pnpm exec postcss \"static/style/index.css\" --config config/ --base static/style/ --dir tmp/static/style/",
     "compress:icon": "svg-sprite \"static/icon/**/*.svg\" --config config/svgsprite.json && pnpm exec svgo -i tmp/pi.svg -o dist/ --config config/svgo-sprite.js && node config/task/cheerio-sprite.js",
     "compress:favicon": "node config/task/sharp-favicon.js",
@@ -69,19 +52,16 @@
     "lint": "pnpm \"/^lint:.*/\"",
     "lint:script": "pnpm exec biome check --apply static/script/ --config-path=config/ --log-kind=compact --skip-errors",
     "lint:style": "pnpm exec stylelint \"tmp/static/style/**/*.css\" --config config/stylelint.json",
-    "lint:page:view": "pnpm exec html-validate \"tmp/view/**/*.html\" --config=config/html-validate.json",
-    "lint:page:plain": "pnpm exec html-validate \"tmp/plain/**/*.html\" --config=config/html-validate.json",
-    "clean:style": "pnpm exec purgecss --css \"tmp/static/style/**/*.css\" --content \"tmp/{view,plain}/**/*.html\" \"tmp/static/script/**/*.js\" -o \"tmp/static/style/\" --config config/purgecss.js",
+    "nolint:page:view": "pnpm exec html-validate \"tmp/view/**/*.html\" --config=config/html-validate.json",
+    "clean:style": "pnpm exec purgecss --css \"tmp/static/style/**/*.css\" --content \"tmp/view/**/*.html\" \"tmp/static/script/**/*.js\" -o \"tmp/static/style/\" --config config/purgecss.js",
     "optimize": "pnpm \"/^optimize:.*/\"",
     "optimize:style": "node config/task/postcss-extract-mq.js && node config/task/postcss-optimize.js",
-    "optimize:page:view": "pnpm exec posthtml \"**/*.{ht,x}ml\" -o dist/ -a -r tmp/view -c config/posthtml-optimize.json && cpy \"tmp/view/**/*.{txt,json,webmanifest}\" dist/ && cpy \"tmp/view/media/**/*\" dist/media/",
-    "optimize:page:plain": "pnpm exec posthtml \"plain/**/*.{ht,x}ml\" -o dist/ -a -r tmp/ -c config/posthtml-optimize.json",
+    "optimize:page:view": "pnpm exec posthtml \"**/*.html\" -o dist/ -a -r tmp/view -c config/posthtml-optimize.json && cpy \"tmp/view/**/*.{xml,txt,json,webmanifest}\" dist/ && cpy \"tmp/view/media/**/*\" dist/media/",
     "optimize:script:vendor": "pnpm exec node config/task/sharp-vendor.js",
     "optimize:script": "pnpm exec swc static/script/ -d dist/ --config-file config/swc.json",
     "watch": "pnpm --workspace-concurrency=10 \"/(^watch:.*|serve)/\"",
     "serve": "pnpm exec eleventy --serve --dryrun --output=dist/ --config=config/eleventy.js",
     "watch:page:view": "pnpm exec chokidar --silent \"view/**/*.{html,xml,liquid,md,json,js,jpg,jpeg,tif,png,webp,gif,webm,svg}\" \"config/{eleventy.js,posthtml-optimize.json}\" -c \"pnpm process:page:view; pnpm lint:page:view; pnpm optimize:page:view\"",
-    "watch:page:plain": "pnpm exec chokidar --silent \"plain/**/*.html\" \"config/{html-validate,posthtml,posthtml-optimize}.json\" -c \"pnpm process:page:plain; pnpm lint:page:plain; pnpm optimize:page:plain\"",
     "watch:style": "pnpm exec chokidar \"static/style/**/*.css\" \"config/{postcss.config.js,purgecss.js,stylelint.json}\" \"config/task/{postcss-extract-mq,postcss-optimize}.js\" -c \"pnpm process:style; pnpm lint:style; pnpm optimize:style\"",
     "watch:script": "pnpm exec chokidar \"static/script/**/*.js\" \"config/{biome,swc}.json\" -c \"pnpm lint:script; pnpm optimize:script\"",
     "watch:img": "pnpm exec chokidar --silent \"static/asset/**/*.{jpeg,jpg,png,tif}\" \"config/task/sharp-compress.js\" -c \"pnpm compress:img\"",
@@ -95,9 +75,9 @@
     "upmod": "pnpm up -i -L && pnpm exec update-browserslist-db"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.0.0-alpha.5",
+    "@11ty/eleventy": "3.0.0-alpha.10",
     "@11ty/eleventy-fetch": "^4.0.1",
-    "@11ty/eleventy-img": "^4.0.2",
+    "@11ty/eleventy-img": "^5.0.0-beta.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@biomejs/biome": "1.6.4",
@@ -174,6 +154,7 @@
     "svg-sprite": "^2.0.4",
     "svgo": "^3.2.0",
     "terser": "^5.30.3",
+    "truncate-html": "^1.1.1",
     "update-browserslist-db": "^1.0.13"
   },
   "dependencies": {

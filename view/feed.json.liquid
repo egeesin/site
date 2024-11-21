@@ -17,7 +17,7 @@ eleventyExcludeFromCollections: true
 	"favicon": "{{ site.favicon.ico32 }}",
 	"icon": "{{ site.favicon.ico32 }}",
 	{%- comment %} Get last 25 posts {% endcomment -%}
-	"items": [{% for item in collections.homepage limit: 25 %}
+	"items": [{% for item in collections.blog limit: 25 %}
 		{
 			"id": "{{ item.url | prepend: site.baseurl | clearIndex }}",
 			"url": "{{ item.url | prepend: site.baseurl | clearIndex }}",

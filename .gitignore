@@ -14,3 +14,7 @@ tmp/
 dist/
 utility/
 reports/
+
+# Don't track Obsidian configs, plugins
+view/_content/.obsidian
+view/_content/.obsidian.vimrc
